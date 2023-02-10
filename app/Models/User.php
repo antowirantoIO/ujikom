@@ -20,6 +20,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'kode_user',
         'name',
         'email',
         'alamat',
@@ -45,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function transaksi_konsumen(){
+        return $this->hasMany(Transaksi::class, 'id_konsumen', 'id');
+    }
+
+    public function transaksi_karyawan(){
+        return $this->hasMany(Transaksi::class, 'id_karyawan', 'id');
+    }
 }

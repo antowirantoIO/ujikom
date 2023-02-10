@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Data Konsumen')
+@section('title', 'Data Karyawan')
 
 @section('content')
 
@@ -9,17 +9,17 @@
     <div class="row">
         <div class="col-md-12">
 
-            <h2 class="page-title">Pengelolaan Data Konsumen</h2>
+            <h2 class="page-title">Pengelolaan Data Karyawan</h2>
 
             <!-- Zero Configuration Table -->
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <a style="margin: 1vw;" href="{{ route('konsumen.create') }}" class="btn btn-primary btn-sm">Tambah Konsumen</a>
+                    <a style="margin: 1vw;" class="btn btn-primary btn-sm">Tambah Karyawan</a>
                     <table id="zctb" class="display table table-striped table-bordered table-hover" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Kode Konsumen</th>
+                                <th>Kode Karyawan</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
                                 <th>Nomor Telp</th>
@@ -29,15 +29,15 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($konsumen as $kons)
+                            @foreach ($karyawan as $kar)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $kons->kode_user }}</td>
-                                    <td>{{ $kons->name }}</td>
-                                    <td>{{ $kons->alamat }}</td>
-                                    <td>{{ $kons->no_telp }}</td>
-                                    <td>{{ $kons->email }}</td>
-                                    <td>{{ $kons->created_at ->diffForHumans() }}</td>
+                                    <td>{{ $kar->kode_user }}</td>
+                                    <td>{{ $kar->name }}</td>
+                                    <td>{{ $kar->alamat }}</td>
+                                    <td>{{ $kar->no_telp }}</td>
+                                    <td>{{ $kar->email }}</td>
+                                    <td>{{ $kar->created_at ->diffForHumans() }}</td>
                                     <td align="center">
                                         <div class="dropdown">
                                             <i class="dropdown-toggle glyphicon glyphicon-option-vertical" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -47,7 +47,7 @@
                                                 <li><a href="#">
                                                     <i class="glyphicon glyphicon-pencil"></i>  Ubah</a>
                                                 </li>
-                                                <form action="{{ route('konsumen.destroy', $kons->id) }}" method="POST">
+                                                <form action="{{ route('karyawan.destroy', $kar->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
 

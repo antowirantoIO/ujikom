@@ -19,6 +19,7 @@ class UserFactory extends Factory
     {
         return [
             'name' => fake()->name(),
+            'kode_user' => 'KRY' . Str::random(5),
             'email' => fake()->unique()->safeEmail(),
             'alamat' => fake()->address(),
             'no_telp' => fake()->phoneNumber(),
