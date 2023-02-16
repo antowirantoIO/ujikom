@@ -63,6 +63,7 @@ Route::patch('/karyawan/update/{user}', [KaryawanController::class, 'update'])->
 
 Route::get('/karyawan/show/{user}', [KaryawanController::class, 'show'])->name('karyawan.show');
 
-
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
 Route::get('/transaksi/create', [TransaksiController::class, 'create'])->name('transaksi.create');
 Route::post('/transaksi/store', [TransaksiController::class, 'store'])->name('transaksi.store');
+Route::delete('/transaksi/destroy/{transaksi}', [TransaksiController::class, 'destroy'])->name('transaksi.destroy');

@@ -745,3 +745,11 @@ li {
   height: 100%;
   width: 100%;
 }
+
+.b1 {
+  border: none;
+  background: none;
+  cursor: pointer;
+  margin: 10px;
+  padding: 0;
+}

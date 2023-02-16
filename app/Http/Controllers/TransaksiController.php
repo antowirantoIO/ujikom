@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
+    public function index(){
+        $transaksi = Transaksi::with('konsumen', 'karyawan', 'paket', 'tipe_bayar', 'status')->get();
+
+        return view('transaksi.index', compact('transaksi'));
+    }
+
     public function create(){
+
         $konsumen = User::role('konsumen')->get();
         $paket = Paket::all();
         $jenis_pembayaran = TipeBayar::all();
@@ -40,6 +47,16 @@ class TransaksiController extends Controller
                 ]
             )
         ]);
+
+        return redirect('transaksi.index')->with('success', 'Transaksi berhasil ditambahkan');
+    }
+
+    public function destroy($id){
+        $trans = Transaksi::findOrFail($id);
+
+        $trans->delete();
+
+        return redirect(route('transaksi.index'))->with('success', 'Transaksi berhasil dihapus');
     }
 
     

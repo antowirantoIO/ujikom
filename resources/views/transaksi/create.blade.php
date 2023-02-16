@@ -164,7 +164,7 @@
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                             <label class="control-label">Kode Transaksi</label>
-                                                <input type="text" readonly value="TSR-20230203" name="kode_transaksi" class="form-control">
+                                                <input type="text" readonly id="kode_transaksi" name="kode_transaksi" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -304,5 +304,15 @@
                 $('#kembalian_input').val(kembalian)
             }
         })
+
+        let date = new Date()
+        let day = date.getDate()
+        let month = date.getMonth() + 1
+        let year = date.getFullYear()
+
+        // 'TRX' + day + month + year + Math.floor(Math.random() * 1000)
+
+        $('#kode_transaksi').val(`TRX${day}${month}${year}${Math.floor(Math.random() * 1000)}`)
+        
     </script>
 @endpush
