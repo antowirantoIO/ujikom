@@ -258,7 +258,7 @@
             let month = date.getMonth() + 1
             let year = date.getFullYear()
 
-            let dateNow = `${day}/${month}/${year}`
+            let dateNow = `${day}-${month}-${year}`
             $('#tgl_masuk_input').val(dateNow)
 
             let dateOut = new Date(date.setDate(date.getDate() + parseInt(hari)))
@@ -266,7 +266,7 @@
             let monthOut = dateOut.getMonth() + 1
             let yearOut = dateOut.getFullYear()
 
-            let dateOutNow = `${dayOut}/${monthOut}/${yearOut}`
+            let dateOutNow = `${dayOut}-${monthOut}-${yearOut}`
             $('#tgl_keluar_input').val(dateOutNow)
 
             

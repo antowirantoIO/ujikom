@@ -48,7 +48,7 @@ class TransaksiController extends Controller
             )
         ]);
 
-        return redirect('transaksi.index')->with('success', 'Transaksi berhasil ditambahkan');
+        return redirect(route('transaksi.index'))->with('success', 'Transaksi berhasil ditambahkan');
     }
 
     public function destroy($id){
